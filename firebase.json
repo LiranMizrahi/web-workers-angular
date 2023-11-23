@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/web-workers-angular",
+    "public": "dist/web-workers-angular/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
