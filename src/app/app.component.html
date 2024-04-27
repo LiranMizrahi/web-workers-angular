@@ -1,17 +1,27 @@
-<div>
-  <!-- <input type="file" (change)="onFileSelected($event)" /> -->
-</div>
+<app-nav></app-nav>
 
-<div *ngIf="imageSrc" class="row d-flex justify-content-around">
+<h1> Selecet Image</h1>
+<button type="button" mat-raised-button (click)="fileInput.click()">Choose Fileeee</button>
+<input hidden (change)="onFileSelected($event)" #fileInput type="file" id="file">
+@if(imageSrc){
+<div class="row d-flex ">
   <div class="col-5">
     <h2>Orignal</h2>
-    <!-- <img class="img-fluid  border border-primary" [src]="imageSrc" alt="Selected Image" /> -->
+    <img class="img-fluid  border border-primary" [src]="imageSrc" alt="Selected Image" />
   </div>
-  <div class="col-5">
+  <div [ngClass]="filteredImage ? '' : 'd-none' " class="col-5">
     <h2>priview</h2>
-    <canvas #canvas></canvas>
-    <!-- <img class="img-fluid border border-primary " [src]="imageSrc" alt="Selected Image" /> -->
+    <canvas class="img-fluid" #canvas></canvas>
   </div>
 </div>
 
-<app-grayscale-filter></app-grayscale-filter>
+<h2>Select Filter</h2>
+<button mat-raised-button (click)="onBlurFilter()">Blur</button>
+<button mat-raised-button (click)="onGrayFilter()">Gray</button>
+
+
+  <button mat-raised-button (click)="handleImageWorker()">onGrayFilterWithWebWorkers</button>
+  <button mat-raised-button (click)="handleImageWorkerBlur()">onBlurFilterWithWebWorkers</button>
+
+}
+
