@@ -1,6 +1,6 @@
 /// <reference lib="webworker" />
 
-import {blurFilter1, grayscaleFilter1} from "./utils";
+import {blurFilter1} from "./utils";
 
 addEventListener('message', ({ data }) => {
   console.log(data)
